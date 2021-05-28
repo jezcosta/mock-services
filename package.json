@@ -1,0 +1,47 @@
+{
+  "name": "mock-services",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run clean && npm run transpile",
+    "server": "node ./dist/bin/www",
+    "start": "npm run build && npm run server",
+    "start:watch": "nodemon",
+    "transpile": "babel ./src --out-dir dist",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "lodash": "^4.17.21",
+    "morgan": "~1.9.1",
+    "node-sass-middleware": "0.11.0",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "nodemonConfig": {
+    "exec": "npm run start",
+    "watch": [
+      "src/*",
+      "public/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  }
+}

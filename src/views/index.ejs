@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mock Services - Configs</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Mock Services</h1>
+    <label>Mock:</label>
+    <select>
+      <% folders = folders.map(function(folder) { %>
+        <option <%= folder === selectedFolder ? "selected" : "" %>><%= folder %></option>
+      <% }) %>
+    </select>
+    <br>
+    <form method="POST" action="/configs/create-folder">
+      <input name="folderName"/>
+      <button>New Mock</button>
+    </form>
+  </body>
+</html>
