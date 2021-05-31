@@ -7,6 +7,7 @@
     "server": "node ./dist/bin/www",
     "start": "npm run build && npm run server",
     "start:watch": "nodemon",
+    "watch-sass":  "node-sass -w ./public/stylesheets -o ./public/stylesheets",
     "transpile": "babel ./src --out-dir dist",
     "clean": "rimraf dist"
   },

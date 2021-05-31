@@ -7,6 +7,8 @@ import sassMiddleware from 'node-sass-middleware';
 
 import indexRouter from './routes/index';
 import configRouter from './routes/config';
+import environmentRouter from './routes/environment';
+import mockRouter from './routes/mock';
 
 var app = express();
 
@@ -28,6 +30,8 @@ app.use(exStatic(join(__dirname, '../public')));
 
 app.use('/', indexRouter);
 app.use('/configs', configRouter);
+app.use('/environment', environmentRouter);
+app.use('/mock', mockRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

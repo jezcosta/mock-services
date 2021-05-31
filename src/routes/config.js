@@ -1,20 +1,14 @@
 import { Router } from 'express';
-import { GetMockFolders, CreateMockFolder } from '../controllers/config';
-import l from 'lodash';
+import { GetEnvironments } from '../controllers/environment';
+import { GetMockFolders, GetMockSelected } from '../controllers/mock';
+
 var router = Router();
 
 router.get('/', function(req, res, next) {
   const folders = GetMockFolders();
-  res.render('index', { folders, selectedFolder: req.query.folder });
-});
-
-router.post('/create-folder', function(req, res, next) {
-  const folderName = req.body?.folderName || Date.now();
-  const folderNameFormatted = l.kebabCase(l.lowerCase(folderName));
-
-  CreateMockFolder(folderNameFormatted).then(() => {
-    res.redirect('/configs?folder=' + folderNameFormatted);
-  });
+  const environments = GetEnvironments();
+  const mockSelected = GetMockSelected();
+  res.render('index', { folders, environments, mockSelected, selectedFolder: req.query.folder });
 });
 
 export default router;

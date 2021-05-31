@@ -1,6 +1,144 @@
+$background: #1e1e24
+$backgroundLight: #343439
+$white: #FFFFFF
+$gray: #CCCCCC
+$primaryButton: #D9D9D9
+$danger: #bc4749
+$success: #6a994e
+$blueSelected: #71a9f7
+
 body
   padding: 20px
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  background-color: $background
+
+h1
+  color: $white
+
+h3
+  color: #c1bdb3
 
 a
   color: #00B7FF
+
+input
+  height: 35px
+  border-radius: 4px
+  border: 1px solid $gray
+  padding-left: 8px
+  padding-right: 8px
+  font-size: 14px
+
+select
+  height: 39px
+  border-radius: 4px
+  border: 1px solid $gray
+  padding-left: 8px
+  padding-right: 8px
+  font-size: 14px
+
+button
+  padding: 12px 20px
+  transition: background-color .5s ease-out
+  border-radius: 5px
+  border: 1px solid $primaryButton
+  color: $primaryButton
+  background-color: transparent
+  cursor: pointer
+  &:hover
+    background-color: $primaryButton
+    color: $background
+  &.danger
+    border-color: $danger
+    color: $white
+    background-color: $danger
+    &:hover
+      background-color: transparent
+      color: $danger
+  &.success
+    border-color: $success
+    color: $white
+    background-color: $success
+    &:hover
+      background-color: transparent
+      color: $success
+
+.relative
+  position: relative
+
+.card
+  background-color: $backgroundLight
+  border-radius: 5px
+  padding: 20px
+
+.flex
+  display: flex
+  flex-wrap: wrap
+  &.column
+    flex-direction: column
+    flex: 1
+  &.row
+    flex-direction: row
+
+.environment
+  padding: 20px
+  margin-right: 20px
+  border: 1px solid $gray
+  border-radius: 8px
+  max-width: 200px
+  cursor: pointer
+  transition: background-color .5s ease-out
+  position: relative
+  margin-bottom: 20px
+  label
+    color: $gray
+    font-size: 12px
+    cursor: pointer
+    font-weight: 600
+    &.title
+      color: $white
+      font-size: 16px
+      display: block
+      margin-bottom: 10px
+  &:hover
+    background-color: $gray
+    label
+      color: $background
+      &.title
+        color: $background
+  &.selected
+    background-color: $blueSelected
+    border-color: $background
+    label
+      color: $background
+      &.title
+        color: $background
+
+.action-rounded
+  color: $white
+  width: 30px
+  height: 30px
+  border-radius: 50%
+  position: absolute
+  display: flex
+  align-items: center
+  justify-content: center
+  top: -10px
+  right: 10px
+  cursor: pointer
+  &.danger
+    background-color: $danger
+
+.alert
+  padding: 10px
+  border-radius: 5px
+  margin-bottom: 10px
+  color: $white
+  &.warning
+    background-color: #f8961e
+
+.mr20
+  margin-right: 20px
+
+.mt20
+  margin-top: 20px
