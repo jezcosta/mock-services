@@ -18,7 +18,8 @@ input {
   border: 1px solid #CCCCCC;
   padding-left: 8px;
   padding-right: 8px;
-  font-size: 14px; }
+  font-size: 14px;
+  min-width: 250px; }
 
 select {
   height: 39px;
@@ -144,6 +145,12 @@ button.success:hover {
 
 .alert.warning {
   background-color: #f8961e; }
+
+.alert.danger {
+  background-color: #bc4749; }
+
+.alert.success {
+  background-color: #6a994e; }
 
 .mr20 {
   margin-right: 20px; }
