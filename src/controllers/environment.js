@@ -7,6 +7,12 @@ export const GetEnvironments = () => {
     return environments;
 }
 
+export const GetSelectedEnvironment = () => {
+    const jsonFile = fs.readFileSync(environmentsFile);
+    const environments = JSON.parse(jsonFile);
+    return environments.options[environments.selected];
+}
+
 export const SelectEnvironment = (index) => {
     const jsonFile = fs.readFileSync(environmentsFile);
     const environments = JSON.parse(jsonFile);
