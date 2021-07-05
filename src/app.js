@@ -4,6 +4,7 @@ import { join } from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import sassMiddleware from "node-sass-middleware";
+import cors from "cors";
 
 import indexRouter from "./routes/index";
 import configRouter from "./routes/config";
@@ -17,6 +18,7 @@ var app = express();
 app.set("views", join(__dirname, "../src/views"));
 app.set("view engine", "ejs");
 
+app.use(cors());
 app.use(logger("dev"));
 app.use(json());
 app.use(urlencoded({ extended: false }));
