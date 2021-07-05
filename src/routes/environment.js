@@ -21,7 +21,7 @@ router.post("/delete-environment", function (req, res, next) {
 
 router.post("/create-environment", function (req, res, next) {
   CreateEnvironment(req.body?.name, req.body?.address).then(() => {
-    res.redirect("/configs");
+    res.redirect("/mock-services/configs");
   });
 });
 
