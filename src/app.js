@@ -4,6 +4,7 @@ import { join } from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import sassMiddleware from "node-sass-middleware";
+import cors from "cors";
 
 import indexRouter from "./routes/index";
 import configRouter from "./routes/config";
@@ -17,6 +18,7 @@ var app = express();
 app.set("views", join(__dirname, "../src/views"));
 app.set("view engine", "ejs");
 
+app.use(cors());
 app.use(logger("dev"));
 app.use(json());
 app.use(urlencoded({ extended: false }));
@@ -31,10 +33,10 @@ app.use(
 );
 app.use(exStatic(join(__dirname, "../public")));
 
-app.use("/configs", configRouter);
-app.use("/environment", environmentRouter);
-app.use("/mock", mockRouter);
-app.use("/status", statusRouter);
+app.use("/mock-services/configs", configRouter);
+app.use("/mock-services/environment", environmentRouter);
+app.use("/mock-services/mock", mockRouter);
+app.use("/mock-services/status", statusRouter);
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler

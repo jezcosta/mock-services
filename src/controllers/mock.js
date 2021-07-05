@@ -72,7 +72,7 @@ export const GetMockOrService = (req) => {
 
         axios({
           method: req.method,
-          timeout: 1000,
+          timeout: 30000,
           baseURL: environment.address,
           url: servicePath,
           data: req.body,

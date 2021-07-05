@@ -17,7 +17,7 @@
         body: JSON.stringify({index})
       };
 
-      fetch("/environment/select-environment", config).then(() => {
+      fetch("/mock-services/environment/select-environment", config).then(() => {
         location.reload();
       });
     }
@@ -33,7 +33,7 @@
         body: JSON.stringify({index})
       };
 
-      fetch("/environment/delete-environment", config).then(() => {
+      fetch("/mock-services/environment/delete-environment", config).then(() => {
         location.reload();
       });
     }
@@ -49,7 +49,7 @@
         body: JSON.stringify({option: select.value})
       };
 
-      fetch("/mock/select-mock", config).then(() => {
+      fetch("/mock-services/mock/select-mock", config).then(() => {
       });
     }
 
@@ -64,7 +64,7 @@
         body: JSON.stringify({option: newStatus})
       };
 
-      fetch("/status/select-status", config).then(() => {
+      fetch("/mock-services/status/select-status", config).then(() => {
         location.reload();
       });
     }
@@ -82,7 +82,7 @@
           </select>
           <br><br>
           <h3>Create New Mock</h3>
-          <form method="POST" action="/mock/create-folder">
+          <form method="POST" action="/mock-services/mock/create-folder">
             <input name="folderName" placeholder="insert mock name"/>
             <button>Insert</button>
           </form>
@@ -90,21 +90,21 @@
         <div class="card flex column">
           <h3>Status </h3>
 
-          <% if(folders?.length === 0) { %>
+          <% if(folders.length === 0) { %>
             <span class="alert warning"><i class="fas fa-exclamation-triangle"></i> You need to add a mock before starting</span>
           <% } %>
 
-          <% if(folders?.length !== 0 && statusSelected === Status.STOPPED) { %>
+          <% if(folders.length !== 0 && statusSelected === Status.STOPPED) { %>
             <span class="alert danger"><i class="fas fa-exclamation-triangle"></i> Mocks Stopped</span>
           <% } %>
 
-          <% if(folders?.length !== 0 && statusSelected === Status.RUNNING) { %>
+          <% if(folders.length !== 0 && statusSelected === Status.RUNNING) { %>
             <span class="alert success"><i class="fas fa-exclamation-triangle"></i> Mocks Running</span>
           <% } %>
 
           <div class="flex row">
             <button class="danger mr20" onClick="selectStatus('stopped')"><i class="fas fa-stop"></i></button>
-            <% if(folders?.length > 0) { %>
+            <% if(folders.length > 0) { %>
               <button class="success" onClick="selectStatus('running')"><i class="fas fa-play"></i></button>
             <% } %>
           </div>
@@ -114,20 +114,20 @@
         <div class="card flex column">
           <h3>Select Environment</h3>
           <div class="flex">
-            <% environmentsMap = environments?.options?.map(function(environment, index) { %>
+            <% environmentsMap = environments.options.map(function(environment, index) { %>
               <div class="relative">
                 <div onclick="selectEnvironment(<%= index %>)" class="environment <%= environments.selected === index ? 'selected' : '' %>">
                   <label class="title"><%= environment.name %></label>
                   <label><%= environment.address %></label>
                 </div>
-                <% if(environments?.options?.length > 1) { %>
+                <% if(environments.options.length > 1) { %>
                   <span onclick="deleteEnvironment(<%= index %>)" class="action-rounded danger"><i class="fas fa-trash"></i></span>
                 <% } %>
               </div>
             <% }) %>
           </div>
           <h3>Create New Environment</h3>
-          <form method="POST" action="/environment/create-environment">
+          <form method="POST" action="/mock-services/environment/create-environment">
             <input name="name" placeholder="insert environment name" required/>
             <input name="address" placeholder="insert environment address" required/>
             <button>Insert</button>
