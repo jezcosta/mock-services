@@ -10,7 +10,7 @@ router.post("/create-folder", function (req, res) {
 
   CreateMockFolder(folderNameFormatted).then(() => {
     SelectMock(folderNameFormatted).then(() => {
-      res.redirect("/configs");
+      res.redirect("/mock-services/configs");
     });
   });
 });

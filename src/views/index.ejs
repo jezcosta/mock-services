@@ -17,7 +17,7 @@
         body: JSON.stringify({index})
       };
 
-      fetch("/environment/select-environment", config).then(() => {
+      fetch("/mock-services/environment/select-environment", config).then(() => {
         location.reload();
       });
     }
@@ -33,7 +33,7 @@
         body: JSON.stringify({index})
       };
 
-      fetch("/environment/delete-environment", config).then(() => {
+      fetch("/mock-services/environment/delete-environment", config).then(() => {
         location.reload();
       });
     }
@@ -49,7 +49,7 @@
         body: JSON.stringify({option: select.value})
       };
 
-      fetch("/mock/select-mock", config).then(() => {
+      fetch("/mock-services/mock/select-mock", config).then(() => {
       });
     }
 
@@ -64,7 +64,7 @@
         body: JSON.stringify({option: newStatus})
       };
 
-      fetch("/status/select-status", config).then(() => {
+      fetch("/mock-services/status/select-status", config).then(() => {
         location.reload();
       });
     }
@@ -82,7 +82,7 @@
           </select>
           <br><br>
           <h3>Create New Mock</h3>
-          <form method="POST" action="/mock/create-folder">
+          <form method="POST" action="/mock-services/mock/create-folder">
             <input name="folderName" placeholder="insert mock name"/>
             <button>Insert</button>
           </form>
@@ -127,7 +127,7 @@
             <% }) %>
           </div>
           <h3>Create New Environment</h3>
-          <form method="POST" action="/environment/create-environment">
+          <form method="POST" action="/mock-services/environment/create-environment">
             <input name="name" placeholder="insert environment name" required/>
             <input name="address" placeholder="insert environment address" required/>
             <button>Insert</button>
