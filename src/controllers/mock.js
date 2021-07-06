@@ -73,8 +73,8 @@ export const GetMockOrService = (req) => {
         axios({
           method: req.method,
           timeout: 30000,
-          baseURL: environment.address,
-          url: servicePath,
+          baseURL: environment.address + '/',
+          url: servicePath.replace('/', ''),
           data: req.body,
           headers: { ...reqHeaders },
         })
