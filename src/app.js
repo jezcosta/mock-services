@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 import sassMiddleware from "node-sass-middleware";
 import cors from "cors";
+import bodyParser from "body-parser"
 
 import indexRouter from "./routes/index";
 import configRouter from "./routes/config";
@@ -21,6 +22,7 @@ app.set("view engine", "ejs");
 app.use(cors());
 app.use(logger("dev"));
 app.use(json());
+app.use(bodyParser.text({ type: 'text/xml' }));
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
