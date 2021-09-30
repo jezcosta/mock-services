@@ -21,7 +21,7 @@ app.set("view engine", "ejs");
 
 app.use(cors());
 app.use(logger("dev"));
-app.use(json());
+app.use(json({limit: '5mb'}));
 app.use(bodyParser.text({ type: 'text/xml' }));
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
