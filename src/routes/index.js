@@ -11,7 +11,7 @@ const RouterHandler = (req, res, next) => {
       res.send(response.data || {});
     })
     .catch((error) => {
-      res.status(error.status);
+      res.status(error.status || 500);
       res.set(error.headers);
       res.send(error.data || {});
     });
