@@ -1,4 +1,5 @@
 # mock-services
+
 This application allows you to make real calls and save the return of those calls for future use.
 
 ## Table of Contents
@@ -16,6 +17,8 @@ This application allows you to make real calls and save the return of those call
 3. The default port of server is `3000`, so the application will run in http://localhost:3000
 4. To access the mock config, open http://localhost:3000/mock-services/configs in your browser
 
+\*If you receive a `Can't find Python executable "python", you can set the PYTHON env variable` in installation error, [please install the last version of python](https://www.python.org/downloads/) and try the above steps again.
+
 ### Connecting to your application
 
 To use it, just set the baseURL of your project requests to the address where this application is running (default is http://localhost:3000)
@@ -29,7 +32,6 @@ To create a new mock collection to save the responses, just fill the field 'Crea
 When you click in insert, the application will create a folder with the collection name for save the `.json` files with the responses in `mocks` folder.
 
 ![Mocks folder](https://i.imgur.com/5wKX2Lw.png)
-
 
 ### Setting up environments
 
