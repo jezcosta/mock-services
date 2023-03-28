@@ -6,14 +6,18 @@ var router = Router();
 const RouterHandler = (req, res, next) => {
   GetMockOrService(req)
     .then((response) => {
-      res.status(response.status);
-      res.set(response.headers);
-      res.send(response.data || {});
+      setTimeout(() => {
+        res.status(response.status);
+        res.set(response.headers);
+        res.send(response.data || {});
+      }, response.delay || 200)
     })
     .catch((error) => {
-      res.status(error.status || 500);
-      res.set(error.headers);
-      res.send(error.data || {});
+      setTimeout(() => {
+        res.status(error.status || 500);
+        res.set(error.headers);
+        res.send(error.data || {});
+      }, response.delay || 200)
     });
 };
 
